@@ -27,7 +27,6 @@ rango:: [Int] -> [Int]
 rango xs = [minimum xs, maximum xs]
 
 
-
 --Ejercicio 1.10.1. Definir la función palindromo tal que (palindromo xs) se verifica si xs es un palíndromo; es decir, es lo mismo leer xs de izquierda a derecha que de derecha a izquierda.
 --Por ejemplo, palindromo [3,2,5,2,3] == True       -- palindromo [3,2,5,6,2,3] == False
 polindromo:: [Int] -> Bool
@@ -56,10 +55,10 @@ segmento n m xs = drop (n-1) (take m xs)
 
 
 
-
-
-
-
-
+--1.11.1Ejercicio 1.11.1. Definir la función interior tal que (interior xs) es la lista obtenida eliminando los extremos de la lista xs.
+--Por ejemplo, interior [2,5,3,7,3] == [5,3,7]          -- interior [2..7] == [3,4,5,6]
+interior2:: [Int] -> [Int]
+interior2 [] = []
+interior2 xs = init (tail xs)
 
 
