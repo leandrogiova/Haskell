@@ -149,6 +149,38 @@ replicate2_ cant num = num : replicate (cant-1) num
 
 
 
+--Ejercicio2.2.1. Tal que (replica n x) es la lista formada por n copias del elemento x.
+--Por ejemplo, replica 3 True == [True, True, True]
+replica:: Int -> a -> [a]
+replica n a = [a | _ <- [1..n] ]
+
+
+
+--Ejercicio 2.3.1. Definir la función suma tal (suma n) es la suma de los n primeros números.
+--Por ejemplo, suma 3 == 6
+suma_::Int -> Int
+suma_ x = sum [x | x <- [1..x] ]
+
+suma2_ :: Int -> Int
+suma2_ x = sum [1..x] 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
