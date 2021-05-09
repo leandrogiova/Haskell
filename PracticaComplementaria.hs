@@ -419,3 +419,93 @@ igualLista2 (x:xs) (y:ys) = (x == y) && (igualLista2 xs ys)
 igualLista2 _ _ = False
 
 
+{- 
+3.2. Concatenación de listas
+Ejercicio 3.2. Definir la función conc tal que conc l1 l2 es la concatenación de l1 y l2 . Por
+ejemplo,   conc [2,3] [3,2,4,1] ; [2,3,3,2,4,1]
+-}
+-----conc:: [Int] -> [Int] -> [Int]
+conc [] [] = []
+conc [x] [y] = (x:y)
+conc (x:xs) ys = x : conc xs ys
+
+{- 
+Ejercicio 3.3. Redefinir la función concat tal que concat l es la concatenación de las lista de l .
+Por ejemplo, concat [[1,2,3],[4,5],[],[1,2]] ; [1,2,3,4,5,1,2]
+
+concat_1:: [[a]] -> [a]
+concat_1 [] = []
+concat_1 [xs] = xs
+concat_1 (xs:xss) = xs ++ concat_1 xss  
+
+-}
+
+
+{- 
+3.4. Cabeza de una lista
+Ejercicio 3.4. Redefinir la función head tal que head l es la cabeza de la lista l . Por ejemplo,
+head [3,5,2] ; 3    
+
+
+head_:: [a] -> a
+head_ [] = error "Las listas vacias no tienen ninguna cabezera"
+head_ [x] = x
+head_ (x:xs) = x
+
+head_2:: [a] -> a
+head_2 (x:_) = x
+
+-}
+
+{-
+3.5. Resto de una lista
+Ejercicio 3.5. Redefinir la función tail tal que tail l es el resto de la lista l . Por ejemplo,
+tail [3,5,2] ==  [5,2]      
+
+tail_ [] = error "Una lista vacia no tiene ningun elemento"
+tail_ [x] = []
+tail_ (x:xs) = xs
+
+-}
+
+
+{-
+3.6. Último elemento
+Ejercicio 3.6. Redefinir la función last tal que last l es el último elemento de la lista l . Por
+ejemplo,
+last [1,2,3] == 3   ;        last [] Program error: pattern match failure: last []
+
+last_:: [a] -> a
+last_ [] = error "Las listas vacias no tiene elementos"
+last_ [x] = x
+last_ xs = head (reverse xs)
+
+
+last_2:: [a] -> a
+last_2 [x] = x
+last_2 (_:xs) = last_2 xs
+-}
+
+
+{- 
+3.7. 51 Lista sin el último elemento
+Ejercicio 3.7. Redefinir la función init tal que init l es la lista l sin el último elemento. Por
+ejemplo, init [1,2,3] ==  [1,2]           ;        init [4] == []
+
+
+init_:: [a] -> [a]
+init_ [] = error "Las listas vacias no tienen elementos"
+init_ [x] = []
+init_ xs = reverse (drop 1 (reverse xs) ) 
+
+-}
+
+{-
+3.8. Segmento inicial. Ejercicio 3.8. Definir la función take tal que take n l es la lista de los n primeros elementos
+de l . Por ejemplo, take 2 [3,5,4,7] ==  [3,5]    ;       take 12 [3,5,4,7] == [3,5,4,7]
+
+aux_factoriales:: Int -> [Int]
+aux_factoriales 0 = [1]
+aux_factoriales 1 = [1]
+aux_factoriales x = (factorial_ x : aux_factoriales (x-1) )
+-}
